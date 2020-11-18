@@ -1,6 +1,6 @@
-# Mgdash - Angular
+# Mgdash - Angular - Starter
 
-Material Design Admin Template with Angular 8 and Angular Material
+Material Design Admin Template with Angular 10 and Angular Material
 
 ## The Community
 
