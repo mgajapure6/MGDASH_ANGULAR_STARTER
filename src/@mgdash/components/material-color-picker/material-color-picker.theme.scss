@@ -1,0 +1,11 @@
+@mixin mgdash-material-color-picker-theme($theme) {
+    $background: map-get($theme, background);
+
+    .mgdash-material-color-picker-menu {
+        .mat-menu-content {
+            .views {
+                background: #303030;
+            }
+        }
+    }
+}

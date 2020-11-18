@@ -1,0 +1,13 @@
+@mixin mgdash-countdown-theme($theme) {
+    $foreground: map-get($theme, foreground);
+
+    mgdash-countdown {
+        .mgdash-countdown {
+            .time {
+                .title {
+                    color: map-get($foreground, secondary-text);
+                }
+            }
+        }
+    }
+}

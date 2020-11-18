@@ -1,0 +1,117 @@
+<!-- SIDE PANEL -->
+<ng-container *ngIf="!mgdashConfig.layout.sidepanel.hidden && mgdashConfig.layout.sidepanel.position === 'left'">
+
+    <!-- PANEL CONTENT -->
+
+</ng-container>
+<!-- / SIDE PANEL -->
+
+<div id="main">
+
+    <!-- TOOLBAR: Above -->
+    <ng-container *ngIf="mgdashConfig.layout.toolbar.position === 'above'">
+        <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+    </ng-container>
+    <!-- / TOOLBAR: Above -->
+
+    <!-- NAVBAR: Top -->
+    <ng-container>
+        <ng-container *ngTemplateOutlet="topNavbar"></ng-container>
+    </ng-container>
+    <!-- / NAVBAR: Top -->
+
+    <!-- TOOLBAR: Below -->
+    <ng-container *ngIf="mgdashConfig.layout.toolbar.position === 'below'">
+        <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+    </ng-container>
+    <!-- / TOOLBAR: Below -->
+
+    <div id="container-1" class="container">
+
+        <!-- NAVBAR: Left -->
+        <ng-container>
+            <ng-container *ngTemplateOutlet="leftNavbar"></ng-container>
+        </ng-container>
+        <!-- / NAVBAR: Left -->
+
+        <div id="container-2" class="container">
+
+            <div id="container-3" class="container" mgdashPerfectScrollbar
+                 [mgdashPerfectScrollbarOptions]="{suppressScrollX: true, updateOnRouteChange : true}">
+
+                <!-- CONTENT -->
+                <content></content>
+                <!-- / CONTENT -->
+
+                <!-- FOOTER: Below -->
+                <ng-container *ngIf="mgdashConfig.layout.footer.position === 'above-static'">
+                    <ng-container *ngTemplateOutlet="footer"></ng-container>
+                </ng-container>
+                <!-- / FOOTER: Below -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER: Above -->
+    <ng-container *ngIf="mgdashConfig.layout.footer.position === 'above-fixed'">
+        <ng-container *ngTemplateOutlet="footer"></ng-container>
+    </ng-container>
+    <!-- FOOTER: Above -->
+
+</div>
+
+<!-- SIDE PANEL -->
+<ng-container *ngIf="!mgdashConfig.layout.sidepanel.hidden && mgdashConfig.layout.sidepanel.position === 'right'">
+
+    <!-- PANEL CONTENT -->
+
+</ng-container>
+<!-- / SIDE PANEL -->
+
+<!-- QUICK PANEL -->
+<mgdash-sidebar name="quickPanel" position="right" class="quick-panel">
+    <quick-panel></quick-panel>
+</mgdash-sidebar>
+<!-- / QUICK PANEL -->
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<!-- @ PARTIALS                                                                                            -->
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+<!-- TOOLBAR -->
+<ng-template #toolbar>
+    <toolbar *ngIf="!mgdashConfig.layout.toolbar.hidden"
+             [ngClass]="mgdashConfig.layout.toolbar.customBackgroundColor === true ? mgdashConfig.layout.toolbar.position + ' ' + mgdashConfig.layout.toolbar.background : mgdashConfig.layout.toolbar.position">
+    </toolbar>
+</ng-template>
+<!-- / TOOLBAR -->
+
+<!-- FOOTER -->
+<ng-template #footer>
+    <footer *ngIf="!mgdashConfig.layout.footer.hidden"
+            [ngClass]="mgdashConfig.layout.footer.customBackgroundColor === true ? mgdashConfig.layout.footer.position + ' ' + mgdashConfig.layout.footer.background : mgdashConfig.layout.footer.position">
+    </footer>
+</ng-template>
+<!-- / FOOTER -->
+
+<!-- TOP NAVBAR -->
+<ng-template #topNavbar>
+    <navbar variant="horizontal-style-1"
+            class="top-navbar" fxHide fxShow.gt-md
+            *ngIf="!mgdashConfig.layout.navbar.hidden">
+    </navbar>
+</ng-template>
+<!-- / TOP NAVBAR -->
+
+<!-- LEFT NAVBAR -->
+<ng-template #leftNavbar>
+    <mgdash-sidebar name="navbar" class="navbar-mgdash-sidebar"
+                  [folded]="mgdashConfig.layout.navbar.folded"
+                  *ngIf="!mgdashConfig.layout.navbar.hidden">
+        <navbar [variant]="mgdashConfig.layout.navbar.variant" class="left-navbar"></navbar>
+    </mgdash-sidebar>
+</ng-template>
+<!-- / LEFT NAVBAR -->

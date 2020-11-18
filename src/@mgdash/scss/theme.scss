@@ -1,0 +1,28 @@
+@import "src/@mgdash/components/countdown/countdown.theme";
+@import "src/@mgdash/components/material-color-picker/material-color-picker.theme";
+@import "src/@mgdash/components/search-bar/search-bar.theme";
+@import "src/@mgdash/components/shortcuts/shortcuts.theme";
+@import "src/@mgdash/components/sidebar/sidebar.theme";
+@import "src/@mgdash/components/theme-options/theme-options.theme";
+@import "src/@mgdash/components/widget/widget.theme";
+
+@mixin mgdash-core-theme($theme) {
+    // Theming for Mgdash core styles
+    @include colors-theme($theme);
+    @include cards-theme($theme);
+    @include material-theme($theme);
+    @include page-layouts-theme($theme);
+    @include typography-theme($theme);
+
+    // Theming for Mgdash components
+    @include mgdash-countdown-theme($theme);
+    @include mgdash-search-bar-theme($theme);
+    @include mgdash-shortcuts-theme($theme);
+    @include mgdash-sidebar-theme($theme);
+    @include mgdash-theme-options-theme($theme);
+    @include mgdash-material-color-picker-theme($theme);
+    @include mgdash-widget-theme($theme);
+
+    // Theming for 3rd party components
+    @include ngx-datatable-theme($theme);
+}
